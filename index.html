@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Fact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            border: 2px solid #008cba;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        button {
+            background-color: #008cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fish Fact</h1>
+        <p id="fact"></p>
+        <button id="nextFact">Show Another Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "There are over 34,000 known species of fish, making them the most diverse group of vertebrates.",
+            "Fish can be found in nearly every aquatic environment, from the deepest parts of the ocean to freshwater rivers and lakes.",
+            "Fish breathe by extracting oxygen from water through their gills, which are specialized organs located on either side of their heads.",
+            "Most fish are ectothermic (cold-blooded), meaning their body temperature is regulated by the surrounding water temperature.",
+            "Fish have a unique sensory system called the lateral line, which allows them to detect vibrations and movement in the water.",
+            "Many fish reproduce by laying eggs (oviparous), while others give birth to live young (viviparous). Some species can even change their sex during their lifetime.",
+            "Fish exhibit a wide range of colors and patterns, which can serve various purposes, including camouflage, mating displays, and warning signals.",
+            "Fish are diverse in their diets; some are herbivores, others are carnivores, and many are omnivores, consuming both plant and animal matter.",
+            "Some fish species, like salmon, are known for their long migrations, traveling thousands of miles between their breeding and feeding grounds.",
+            "The lifespan of fish varies widely; some species live only a few years, while others, like certain types of rockfish, can live for over 200 years."
+        ];
+
+        let currentFactIndex = 0;
+
+        function showFact() {
+            document.getElementById('fact').innerText = facts[currentFactIndex];
+        }
+
+        document.getElementById('nextFact').addEventListener('click', () => {
+            currentFactIndex = (currentFactIndex + 1) % facts.length;
+            showFact();
+        });
+
+        // Show the first fact on page load
+        showFact();
+    </script>
+</body>
+</html>
